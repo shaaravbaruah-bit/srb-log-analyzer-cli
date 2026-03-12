@@ -3,6 +3,7 @@ package com.log.analyzer;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -15,6 +16,8 @@ public class Main {
         int info = 0;
         int total = 0;
 
+        ArrayList<String> errorLogs = new ArrayList<>();
+
         try {
 
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -26,6 +29,7 @@ public class Main {
 
                 if(line.contains("ERROR")) {
                     error++;
+                    errorLogs.add(line);
                 }
 
                 else if(line.contains("WARNING")) {
@@ -44,6 +48,12 @@ public class Main {
             System.out.println("Errors: " + error);
             System.out.println("Warnings: " + warning);
             System.out.println("Info: " + info);
+
+            System.out.println("\n----- Error Logs -----");
+
+            for(String log : errorLogs) {
+                System.out.println(log);
+            }
 
         }
 
