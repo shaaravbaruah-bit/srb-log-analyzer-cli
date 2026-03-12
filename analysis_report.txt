@@ -1,0 +1,9 @@
+===== Log Analysis Report =====
+Total Logs: 5
+Errors: 2
+Warnings: 1
+Info: 2
+
+----- Error Logs -----
+ERROR Failed login attempt
+ERROR Database connection failed

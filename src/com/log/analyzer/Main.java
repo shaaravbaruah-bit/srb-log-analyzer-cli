@@ -2,6 +2,7 @@ package com.log.analyzer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -53,6 +54,32 @@ public class Main {
 
             for(String log : errorLogs) {
                 System.out.println(log);
+            }
+
+            try {
+
+                FileWriter writer = new FileWriter("analysis_report.txt");
+
+                writer.write("===== Log Analysis Report =====\n");
+                writer.write("Total Logs: " + total + "\n");
+                writer.write("Errors: " + error + "\n");
+                writer.write("Warnings: " + warning + "\n");
+                writer.write("Info: " + info + "\n\n");
+
+                writer.write("----- Error Logs -----\n");
+
+                for(String log : errorLogs) {
+                    writer.write(log + "\n");
+                }
+
+                writer.close();
+
+                System.out.println("\nReport saved to analysis_report.txt");
+
+            }
+
+            catch(IOException e) {
+                System.out.println("Error writing report file.");
             }
 
         }
