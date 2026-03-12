@@ -1,0 +1,5 @@
+INFO User logged in
+ERROR Failed login attempt
+WARNING Low memory
+INFO File uploaded
+ERROR Database connection failed
